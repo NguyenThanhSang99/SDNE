@@ -1,0 +1,1 @@
+call SDNE/Scripts/activate.bat
