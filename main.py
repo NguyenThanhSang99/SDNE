@@ -67,7 +67,7 @@ def train_SDNE(model, data, adj_matrix, opt, epochs, nu1=1e-5, nu2=1e-4, beta=5,
             loss_L2 += L_2nd
             loss_reg += L_reg
         scheduler.step(epoch)
-        # print("The lr for epoch %d is %f" %(epoch, scheduler.get_lr()[0]))
+
         print("Epoch %d:" % epoch)
         print("+ loss_sum is %f" % loss_sum)
         print("+ loss_L1 is %f" % loss_L1)

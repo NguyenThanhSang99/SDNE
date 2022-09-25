@@ -20,10 +20,7 @@ class MNN(nn.Module):
         t0 = F.leaky_relu(self.decode0(t0))
         t0 = F.leaky_relu(self.decode1(t0))
         embedding_norm = torch.sum(embedding * embedding, dim=1, keepdim=True)
-        L_1st = torch.sum(adj_mat * (embedding_norm -
-                                     2 *
-                                     torch.mm(embedding, torch.transpose(
-                                         embedding, dim0=0, dim1=1))
+        L_1st = torch.sum(adj_mat * (embedding_norm - 2 * torch.mm(embedding, torch.transpose(embedding, dim0=0, dim1=1))
                                      + torch.transpose(embedding_norm, dim0=0, dim1=1)))
         L_2nd = torch.sum(((adj_batch - t0) * b_mat)
                           * ((adj_batch - t0) * b_mat))
